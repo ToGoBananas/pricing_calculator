@@ -1,0 +1,1 @@
+web: gunicorn pricing_calculator.wsgi --log-file -
