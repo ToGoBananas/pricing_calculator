@@ -53,7 +53,7 @@ ROOT_URLCONF = 'pricing_calculator.urls'
 TEMPLATES = (
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(APP_DIR.path('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
