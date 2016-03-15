@@ -1,6 +1,9 @@
 from .common import *
 
 
+DEBUG = True
+TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

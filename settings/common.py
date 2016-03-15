@@ -35,6 +35,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pricing_calculator',
+    'orders'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -122,6 +124,10 @@ STATICFILES_DIRS = [
     str(APP_DIR.path('static')),
 ]
 
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# MEDIA CONFIGURATION
+# ------------------------------------------------------------------------------
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
+MEDIA_ROOT = str(APP_DIR('media'))
+
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
+MEDIA_URL = '/media/'
