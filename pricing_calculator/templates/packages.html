@@ -1,0 +1,87 @@
+<div id="packages">
+    {% for package in packages %}
+        <div class="datacenter">
+            <div class="{{ package.name }}">
+                <h5 class="datacenter_name" data-datacenter="{{ package.datacenter }}">Datacenter in {{ package.datacenter }}</h5>
+                <span class="package_price">{{ package.total_price }}$</span>
+                {% if package.discount != 0 %}
+                    <span class="discount">-{{ package.discount }}%</span>
+                {% endif %}
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="">
+                    Select this
+                  </label>
+                </div>
+            </div>
+            <div class="datacenter_info container">{{ package.info }}</div>
+            <div class="packages_description container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h6>Virtual machines</h6>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>OS</th>
+                                  <th>CPU</th>
+                                  <th>Memory</th>
+                                  <th>Storage</th>
+                                  <th>Price</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                    {% for machine in package.virtual_machines.all %}
+                                        <th scope="row">{{ forloop.counter }}</th>
+                                        <td>{{ machine.os }}</td>
+                                        <td>{{ machine.cpu }}</td>
+                                        <td>{{ machine.memory }}</td>
+                                        <td>{{ machine.storage }}</td>
+                                        <td>{{ machine.price }}$</td>
+                                    {% endfor %}
+                                </tr>
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h6>Features</h6>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>name</th>
+                                  <th>info</th>
+                                  <th>Price</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                    {% for feature in package.features.all %}
+                                        <th scope="row">{{ forloop.counter }}</th>
+                                        <td>{{ feature.name }}</td>
+                                        <td>{{ feature.info }}</td>
+                                        <td>{{ feature.price }}$</td>
+                                    {% endfor %}
+                                </tr>
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if not forloop.last %}
+                <div class="container-fluid line"></div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

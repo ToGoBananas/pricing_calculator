@@ -4,7 +4,6 @@ from .models import Package, Datacenter, Feature, VirtualMachine
 
 class PackageAdmin(admin.ModelAdmin):
     filter_horizontal = ('features', 'virtual_machines')
-    list_display = ('name', 'datacenter', 'total_price')
 
 
 class DatacenterAdmin(admin.ModelAdmin):

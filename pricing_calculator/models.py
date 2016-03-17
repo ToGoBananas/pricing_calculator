@@ -10,20 +10,20 @@ class Package(models.Model):
     discount = models.PositiveSmallIntegerField(default=0)
     virtual_machines = models.ManyToManyField('VirtualMachine')
     datacenter = models.ForeignKey('Datacenter')
-    features = models.ManyToManyField('Feature')
+    features = models.ManyToManyField('Feature', blank=True)
     STATUS = Choices('active', 'archive')
     status = StatusField(default='active')
 
     @property
     def total_price(self):
-        price = self.features.all().aggregate(Sum('price'))['price__sum'] +\
-                      self.virtual_machines.all().aggregate(Sum('price'))['price__sum']
+        price = self.features.aggregate(Sum('price'))['price__sum'] +\
+                      self.virtual_machines.aggregate(Sum('price'))['price__sum']
         if self.discount > 0:
             price *= (100-self.discount) / 100
         return price
 
     def __str__(self):
-        return self.name
+        return self.name + ' ' + self.datacenter.location
 
 
 class Datacenter(models.Model):

@@ -1,7 +1,75 @@
-#a {
-  background-color: transparent;
+.packages_name {
+  background-color: #525252;
+  color: white;
+  margin: 6px 5px;
+  padding-left: 5px;
+  font-size: larger;
+  cursor: pointer;
 }
 
-#b {
-  background-color: red;
+.active.packages_name {
+  background-color: #00ABEC;
+}
+
+.datacenter {
+  cursor: pointer;
+}
+
+.packages_description {
+
+}
+
+body {
+  background-color: lightgrey;
+  font-family: font-awesome;
+
+  .content {
+    background-color: white;
+  }
+}
+
+.headline {
+  background-color: #0072C6;
+  color: white;
+  padding: 10px;
+  margin: 0;
+}
+
+.packages {
+  margin: 10px 0;
+}
+
+.checkbox {
+  float: right;
+  display: inline;
+}
+
+table {
+  font-size: small;
+}
+
+.datacenter_name {
+  font-weight: bold;
+  display: inline;
+}
+
+.discount {
+  color: red;
+  font-weight: bold;
+}
+
+.line {
+  background-color: black;
+  height: 5px;
+  margin-bottom: 10px;
+}
+
+.datacenter_info {
+  color: gray;
+  font-size: small;
+  margin-bottom: 7px;
+}
+
+.package_price {
+  color: #0072c6;
 }
