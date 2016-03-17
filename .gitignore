@@ -67,3 +67,4 @@ mailhog
 to_server
 to_local
 db.sqlite
+staticfiles
